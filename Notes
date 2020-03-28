@@ -1,0 +1,39 @@
+Assumptions
+1) Input data:
+I assumed that the input will be a serialised object similar to the structure of REST API responses from the Meraki Dashboard API.
+
+e.g. response = [{},{},{},{},...,{}]
+
+2) Input data model:
+I assumed that each individual data object cointains an epoch timestamp in seconds.
+{
+    node_id: Long,
+    value: Integer,
+    timestamp: Long
+}
+
+3) Input data source:
+For the scope of this challenge the input data will be a data.json file. 
+
+4) Data quality
+The input data has been assumed to be complete and compliant with the aformentioned structure.
+
+5) Database type:
+A SQLite db has been used to store information due to the lack of any specific database requirements.
+
+Sample data
+1) Sample datasets (data_1k, data_2k, data_5k, data_10k) have been created using https://www.mockaroo.com/.
+
+Performance
+1) Results (on single thread, i7 4910mq):
+1k nodes ~ 33 ms
+2k nodes ~ 40 ms
+5k nodes ~ 50 ms
+10k nodes ~ 100-120 ms
+
+2) Due to time and resource constraints I was not able to test how the code handles 10k+ nodes. However given the test results we can assume the code should be able to handle more nodes per seconds.  
+
+Future improvements
+1) We could implement concurrent processing to improve performance potentially allocating a dedicated process for the logic and another one for storing data to a database.
+
+2) A NoSQL database could be used to store data instead of a classic relational database. This will improve performance especially if we deal with a considerable amount of data and nodes.
