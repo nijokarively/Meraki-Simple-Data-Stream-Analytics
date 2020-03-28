@@ -9,6 +9,8 @@ This approach enables us to reuse this service in complex pipelines without havi
 
 To run this script type the following in your cmd, bash or cli => python main.py -i <input_data_source> -d <database_location> or python3 main.py -i <input_data_source> -d <database_location>
 
+e.g. python main.py -i data_10k.json -d mytest1.db
+
 NB: Please replace <input_data_source> with the input source and <database_location> with the database path.
 
 A brief help guide can be displayed by running => python main.py -h or python3 main.py -h
